@@ -1,1 +1,4 @@
 ssl/
+token/
+api_key/
+etl_venv/
