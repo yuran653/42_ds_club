@@ -1,4 +1,3 @@
-
 CREATE TABLE users (
     _id SERIAL PRIMARY KEY,
     id VARCHAR,
@@ -28,7 +27,7 @@ CREATE TABLE users (
     day_of_registration INTEGER NOT NULL,
 
     password_length INTEGER,
-    loging_length INTEGER,
+    login_length INTEGER,
     transform_timestamp TIMESTAMP NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )

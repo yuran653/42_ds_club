@@ -23,7 +23,7 @@ def convert_country_code(country_name: str) -> str:
     return iso_code
 
 # Define a function to convert alpha characters to their corresponding digits
-def convert_alpha(phone_number):
+def convert_alpha(phone_number : str) -> str:
     # Mapping of alpha characters to their respective digits on a phone keypad
     letters_to_digit = {
         'A': '2', 'B': '2', 'C': '2',
@@ -95,12 +95,11 @@ def transform_data_batch(df : pd.DataFrame):
 
     # Calculate and store lengths of login password and username fields
     tqdm.pandas(desc='Calculate lengths of login fields')
-    tqdm.pandas(desc='Calculate lengths of login fields')
     df['password_length'] = df['login_password'].progress_apply(len)
     tqdm.pandas(desc='Calculate lengths of password fields')
-    df['loging_length'] = df['login_username'].progress_apply(len)
+    df['login_length'] = df['login_username'].progress_apply(len)
     # df['password_length'] = df['login_password'].apply(len)
-    # df['loging_length'] = df['login_username'].apply(len)
+    # df['login_length'] = df['login_username'].apply(len)
 
     # Record the timestamp for the transformation process
     df['transform_timestamp'] = datetime.now()
