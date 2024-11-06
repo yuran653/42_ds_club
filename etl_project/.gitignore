@@ -4,3 +4,4 @@ api_key/
 etl_venv/
 *.json
 *.csv
+*.pkl

@@ -63,7 +63,7 @@ def transform_data_batch(df : pd.DataFrame):
     
     # Convert country names to ISO2 country codes
     tqdm.pandas(desc='Converting country names to ISO2 country codes')
-    df['country_iso2'] = df['location_country'].progress_apply(convert_country_code)
+    df['country_iso2'] = (df['location_country'].progress_apply(convert_country_code)).astype('category')
     # df['country_iso2'] = df['location_country'].apply(convert_country_code)
     
     # Normalize phone and cell numbers by applying the country ISO2 code
@@ -91,7 +91,7 @@ def transform_data_batch(df : pd.DataFrame):
     df['day_of_registration'] = df['date_of_registration'].dt.day
 
     # Standardize gender values to 'M' and 'F'
-    df['gender'] = df['gender'].replace({'male' : 'M', 'female' : 'F'})
+    df['gender'] = (df['gender'].replace({'male' : 'M', 'female' : 'F'})).astype('category')
 
     # Calculate and store lengths of login password and username fields
     tqdm.pandas(desc='Calculate lengths of login fields')
@@ -117,6 +117,8 @@ def transform_step(batch_path, result_path):
     transformed_df = transform_data_batch(df)
     # Save the transformed data to a CSV file at the specified path
     transformed_df.to_csv(result_path)
+    
+    transformed_df.info()
 
 # Run the CLI command when this script is executed
 transform_step()
