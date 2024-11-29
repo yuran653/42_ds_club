@@ -5,3 +5,4 @@ etl_venv/
 *.json
 *.csv
 *.pkl
+*.log

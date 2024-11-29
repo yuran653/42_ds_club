@@ -7,7 +7,7 @@ CREATE TABLE users (
     location_country VARCHAR(50) NOT NULL,
     location_state VARCHAR(50) NOT NULL,
     location_latitude NUMERIC(6, 4) NOT NULL,
-    location_longitude NUMERIC(6, 4) NOT NULL,
+    location_longitude NUMERIC(7, 4) NOT NULL,
     location_postcode VARCHAR(50),
     location_street_info VARCHAR(100),
     email VARCHAR(100) NOT NULL,
